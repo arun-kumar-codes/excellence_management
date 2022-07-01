@@ -4,7 +4,6 @@ import { listProjectLog } from "../../../api/fixedhoursapi";
 export const listProjectAllLog = createAsyncThunk(
   "/listProjectLog",
   async (projectid: any, thunkAPI) => {
-    console.log(projectid, "lll");
     try {
       const listprojectdata = await listProjectLog(projectid);
       return listprojectdata;

@@ -1,4 +1,11 @@
-import { collection, setDoc, doc, getDocs } from "firebase/firestore";
+import {
+  collection,
+  setDoc,
+  doc,
+  getDocs,
+  query,
+  where
+} from "firebase/firestore";
 import { db } from "../firebaseConfig";
 import { toast } from "react-toastify";
 import {} from "firebase/firestore";
@@ -34,15 +41,24 @@ export const fixedhoursapi = async (
   }
 };
 
-export const listProjectLog = async (projectid: string) => {
-  try {
-    const querySnapshotProjectLog = await getDocs(collection(db, "fixedhours"));
-    const data2ProjectLog = querySnapshotProjectLog.docs.map((doc) =>
-      doc.data()
-    );
+console.log(query, where);
+export const listProjectLog = async ({ projectid }: any) => {
+  if (projectid) {
+    try {
+      const projectAllLogData: any = [];
+      const qProjectLog = query(
+        collection(db, "fixedhours"),
+        where("projectid", "==", projectid)
+      );
+      const querySnapshotLog = await getDocs(qProjectLog);
 
-    return data2ProjectLog;
-  } catch (error: any) {
-    throw error;
+      await querySnapshotLog.forEach((doc) => {
+        projectAllLogData.push(doc.data());
+      });
+
+      return projectAllLogData;
+    } catch (error: any) {
+      throw error;
+    }
   }
 };
