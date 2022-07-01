@@ -12,6 +12,12 @@ import { projectalldata } from "../../types/projects/index";
 import MyProjects from "./myProjects";
 
 const Index: React.FC = () => {
+  const [open, setOpen] = useState(false);
+  const [edit, setEdit] = useState(false);
+  const [editData, setEditData] = useState({} as projectalldata);
+  const [deleteid, setDeleteId] = useState({} as string);
+  const [deleteopen, setDeleteOpen] = useState(false);
+
   const dispatch = useDispatch();
   const projectList = useSelector((state: RootState) => state.listProjectSlice);
 
@@ -25,10 +31,9 @@ const Index: React.FC = () => {
   const addProjectsuccess = useSelector(
     (state: RootState) => state.addProjectSlice
   );
-
-  // const projectLogLists = useSelector(
-  //   (state: RootState) => state.listProjectLogSlice
-  // );
+  const projectLogLists = useSelector(
+    (state: RootState) => state.fixedHoursSlice
+  );
 
   useEffect(() => {
     dispatch(listProject());
@@ -42,11 +47,12 @@ const Index: React.FC = () => {
     }
   }, [addProjectsuccess.projectaddingSuccess]);
 
-  // useEffect(() => {
-  //   if (projectLogLists.projectLoglistingSuccess) {
-  //     dispatch(listProject());
-  //   }
-  // }, [projectLogLists.projectLoglistingSuccess]);
+  useEffect(() => {
+    if (projectLogLists.fixedtaskaddingSuccess) {
+      console.log("kkk");
+      dispatch(listProject());
+    }
+  }, [projectLogLists?.fixedtaskaddingSuccess]);
 
   useEffect(() => {
     if (deleteProductList.projectdeleteSuccess) {
@@ -63,11 +69,11 @@ const Index: React.FC = () => {
     }
   }, [editProjectList.projecteditingSuccess]);
 
-  const [open, setOpen] = useState(false);
-  const [edit, setEdit] = useState(false);
-  const [editData, setEditData] = useState({} as projectalldata);
-  const [deleteid, setDeleteId] = useState({} as string);
-  const [deleteopen, setDeleteOpen] = useState(false);
+  useEffect(() => {
+    if (open === false) {
+      setEdit(false);
+    }
+  }, [open]);
 
   const handleCardClick = (data: any) => {
     setOpen(true);
@@ -80,11 +86,6 @@ const Index: React.FC = () => {
     setDeleteOpen(true);
   };
 
-  useEffect(() => {
-    if (open === false) {
-      setEdit(false);
-    }
-  }, [open]);
   return (
     <>
       <div className="flex justify-end p-5">

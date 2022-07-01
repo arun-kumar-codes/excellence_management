@@ -22,11 +22,11 @@ import { employeealldata } from "../../types/employee/index";
 import { projectProps } from "../../types/projects/index";
 import { projectalldata } from "../../types/projects/index";
 import { filterUserData } from "../../types/projects/index";
-import { teamDetails, prodjectType } from "../../pages/hardCodedData";
+import { teamDetails, prodjectType } from "../../Pages/hardCodedData";
 
 const validationSchema = yup.object({
   projectName: yup.string().required("name is required"),
-  clientName: yup.string().required("CLient name is required"),
+  clientName: yup.string().required("Client name is required"),
   Description: yup.string().required("Description is required"),
   Link: yup.string().url("Must be a valid URL").required("Link is required"),
   Rate: yup.string().required("Rate is required"),
@@ -270,10 +270,7 @@ const AddProject = ({ edit, editData, open, setOpen }: projectProps) => {
                         </p>
                       </div>
 
-                      <LocalizationProvider
-                        dateAdapter={AdapterDateFns}
-                        className="w-full"
-                      >
+                      <LocalizationProvider dateAdapter={AdapterDateFns}>
                         <div>
                           <label className="block">Created Date</label>
                           <TextField
@@ -297,10 +294,7 @@ const AddProject = ({ edit, editData, open, setOpen }: projectProps) => {
                         </div>
                       </LocalizationProvider>
 
-                      <LocalizationProvider
-                        dateAdapter={AdapterDateFns}
-                        className="w-full"
-                      >
+                      <LocalizationProvider dateAdapter={AdapterDateFns}>
                         <div>
                           <label className="block">Ended Date</label>
                           <TextField

@@ -18,7 +18,9 @@ const useStyles = makeStyles({
       height: 0
     },
     "& .MuiTabs-flexContainer": {
-      flexDirection: "column"
+      flexDirection: "column",
+      overflowY: "scroll",
+      maxHeight: "400px"
     },
 
     "& .MuiTab-root.MuiTab-textColorPrimary": {
@@ -71,7 +73,7 @@ const MyProjects = (props: listprojectData) => {
 
   return (
     <Box className="grid grid-cols-4">
-      <Box className="overflow-y-scroll  max-h-full flex flex-col">
+      <Box className="max-h-full flex flex-col">
         <Tabs
           value={value}
           onChange={handleChange}
