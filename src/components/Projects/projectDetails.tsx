@@ -21,8 +21,6 @@ const ProjectDetails = ({
     (state: RootState) => state.listProjectLogSlice
   );
 
-  console.log(projectLogList, "projectLogList");
-
   useEffect(() => {
     dispatch(
       listProjectAllLog({

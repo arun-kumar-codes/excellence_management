@@ -17,7 +17,7 @@ import { useSelector } from "react-redux";
 import { collection, doc, setDoc } from "firebase/firestore";
 import { db } from "../../firebaseConfig";
 import MenuItem from "@mui/material/MenuItem";
-import { userRole } from "../../pages/hardCodedData";
+import { userRole } from "../../Pages/hardCodedData";
 
 const validationSchema = yup.object({
   userEmail: yup

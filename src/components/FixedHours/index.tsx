@@ -4,7 +4,7 @@ import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import Stack from "@mui/material/Stack";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { TimePicker } from "@mui/x-date-pickers/TimePicker";
-import { projectStatus } from "../../pages/hardCodedData";
+import { projectStatus } from "../../Pages/hardCodedData";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import Dialog from "@mui/material/Dialog";
@@ -91,7 +91,7 @@ const FixedHours = ({ fixedHours, setFixedHours, projectDatas }: any) => {
                 tasksStatus: values.tasksStatus,
                 projectid: projectDatas.projectid,
                 timepicker: hours + " hour and " + minutes + " minutes.",
-                currentData: moment(new Date()).format("MMMM do YYYY , h:mm a")
+                currentData: new Date()
               })
             );
           }}
@@ -122,10 +122,10 @@ const FixedHours = ({ fixedHours, setFixedHours, projectDatas }: any) => {
                     <Stack spacing={3}>
                       <TimePicker
                         value={values.startTime}
-                        onChange={(value) => {
+                        onChange={(value: any) => {
                           setFieldValue("startTime", value);
                         }}
-                        renderInput={(params) => <TextField {...params} />}
+                        renderInput={(params: any) => <TextField {...params} />}
                       />
                     </Stack>
                   </LocalizationProvider>

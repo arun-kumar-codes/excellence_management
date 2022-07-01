@@ -16,7 +16,7 @@ import MenuItem from "@mui/material/MenuItem";
 import { useAuthState } from "../../context/AppContextData";
 import { useNavigate } from "react-router";
 import excellence from "../../assests/excellence.png";
-import { userRole } from "../../pages/hardCodedData";
+import { userRole } from "../../Pages/hardCodedData";
 /**
  * Home Page of the Application
  * @return {JSX.Element}
@@ -82,7 +82,7 @@ const Registration: React.FC = () => {
       }
     };
     genRandomKey();
-  }, [RegisterUser]);
+  }, [RegisterUser.userData.uid]);
 
   const formik = useFormik<formEvent>({
     initialValues: {

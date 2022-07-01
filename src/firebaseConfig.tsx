@@ -3,12 +3,12 @@ import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 const firebaseConfig = {
-  apiKey: "AIzaSyBR7C25d19M7pK0SrGdELInh-pLP61u_H4",
-  authDomain: "excelproject-9c2e3.firebaseapp.com",
-  projectId: "excelproject-9c2e3",
-  storageBucket: "excelproject-9c2e3.appspot.com",
-  messagingSenderId: "123669142079",
-  appId: "1:123669142079:web:a7bc34729852bef30af68a"
+  apiKey: "AIzaSyCcQBzXsAsA3nuimsipYZQKq-ZjizCS9Pg",
+  authDomain: "react-management-69474.firebaseapp.com",
+  projectId: "react-management-69474",
+  storageBucket: "react-management-69474.appspot.com",
+  messagingSenderId: "270732981273",
+  appId: "1:270732981273:web:f0ccfe7c45a7ffdf52e688"
 };
 
 const firebaseConfigurationDetails = initializeApp(firebaseConfig);

@@ -18,6 +18,6 @@ export const AuthContextProvider = (props: any) => {
 };
 export const useAuthState = () => {
   const authData = useContext(AuthContext);
-  console.log(authData, "authData");
+
   return authData;
 };
